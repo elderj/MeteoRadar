@@ -3,26 +3,33 @@ package joe.andenjoying.meteoradar;
 
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpUriRequest;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- *
  * MeteoRadar App.
- *
+ * <p/>
  * A basic weather application (WIP!!)
- *
+ * <p/>
  * Created by jelder on 11/11/17.
  */
 public class WeatherReport {
 
     JSONObject json;
-    String city="default";
-    String temp = "hotaf";
+    String city = "default";
+    String temp = "0.0";
+    String humidity = "0.0%";
+    String condition = "";
 
-    public WeatherReport(final String url){
+    String description = "";
+    String icon_code = "";
+    String wind_speed = "";
+    String wind_direction = "";
 
-       System.out.println("Created a WeatherReport Object");
+    public WeatherReport(final String url) {
+
+        System.out.println("Created a WeatherReport Object");
 
 
         new HttpHandler() {
@@ -30,6 +37,7 @@ public class WeatherReport {
             public HttpUriRequest getHttpRequestMethod() {
                 return new HttpGet(url);
             }
+
             @Override
             public void onResponse(String result) {
                 ParseData(result);
@@ -38,19 +46,31 @@ public class WeatherReport {
         }.execute();
 
 
-
         //ParseData(json);
 
     }
-    private void ParseData(String result)
-    {
+
+    private void ParseData(String result) {
         try {
             json = new JSONObject(result);
             city = json.getString("name");
-            JSONObject jsonMain=json.getJSONObject("main");
-            temp = jsonMain.getString("temp");
+            JSONObject json_main = json.getJSONObject("main");
+            temp = json_main.getString("temp");
+            humidity = json_main.getString("humidity");
 
-            System.out.println(city+" : "+ temp+"!!!!!!!!!!!");
+            //Conditions (unfortunatly named 'weather')
+            JSONArray json_weather_arr = json.getJSONArray("weather");
+
+            JSONObject json_weather = (JSONObject) json_weather_arr.get(0);
+
+            condition = json_weather.getString("main");
+            description = json_weather.getString("description");
+            icon_code = json_weather.getString("icon");
+
+            //Get Wind speed and direction
+            JSONObject json_wind = json.getJSONObject("wind");
+            wind_speed = json.getString("speed");
+            wind_direction = json.getString("deg");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -63,5 +83,29 @@ public class WeatherReport {
 
     public String getTemp() {
         return temp;
+    }
+
+    public String getHumidity() {
+        return humidity;
+    }
+
+    public String getCondition() {
+        return condition;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getIcon_code() {
+        return icon_code;
+    }
+
+    public String getWind_speed() {
+        return wind_speed;
+    }
+
+    public String getWind_direction() {
+        return wind_direction;
     }
 }

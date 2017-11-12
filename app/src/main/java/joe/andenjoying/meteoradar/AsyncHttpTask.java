@@ -13,10 +13,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class AsyncHttpTask extends AsyncTask<String, Void, String>{
+public class AsyncHttpTask extends AsyncTask<String, Void, String> {
 
     private HttpHandler httpHandler;
-    public AsyncHttpTask(HttpHandler httpHandler){
+
+    public AsyncHttpTask(HttpHandler httpHandler) {
 
         this.httpHandler = httpHandler;
     }
@@ -38,7 +39,7 @@ public class AsyncHttpTask extends AsyncTask<String, Void, String>{
             inputStream = httpResponse.getEntity().getContent();
 
             // convert inputstream to string
-            if(inputStream != null)
+            if (inputStream != null)
                 result = convertInputStreamToString(inputStream);
             else
                 result = "Did not work!";
@@ -49,6 +50,7 @@ public class AsyncHttpTask extends AsyncTask<String, Void, String>{
 
         return result;
     }
+
     @Override
     protected void onPostExecute(String result) {
         try {
@@ -59,11 +61,11 @@ public class AsyncHttpTask extends AsyncTask<String, Void, String>{
     }
 
     //--------------------------------------------------------------------------------------------
-    private static String convertInputStreamToString(InputStream inputStream) throws IOException{
-        BufferedReader bufferedReader = new BufferedReader( new InputStreamReader(inputStream));
-        String line;
+    private static String convertInputStreamToString(InputStream inputStream) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+        String line = "";
         String result = "";
-        while((line = bufferedReader.readLine()) != null)
+        while ((line = bufferedReader.readLine()) != null)
             result += line;
 
         inputStream.close();

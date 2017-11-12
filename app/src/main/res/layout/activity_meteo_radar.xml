@@ -37,17 +37,31 @@
         android:gravity="center_horizontal">
 
         <TableRow
+            android:id="@+id/tableRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/searchButton"
+                android:src="@drawable/search"
+                android:layout_span="4"
+                android:layout_gravity="right" />
+        </TableRow>
+
+        <TableRow
             android:id="@+id/tableRow1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:background="#ff7b8066" >
+            android:gravity="center_horizontal">
 
             <TextView
                 android:id="@+id/cityTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="City"
+                android:text="----"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="#FFF"
                 android:textStyle="italic"
@@ -58,35 +72,32 @@
             android:id="@+id/tableRow2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:background="#ff7b8066" >
+            android:gravity="center_horizontal">
 
             <TextView
                 android:id="@+id/tempTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="88\u00B0"
+                android:text="-\u00B0"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="#FFF"
-                android:textStyle="italic"
                 android:textAlignment="center"
                 android:gravity="center_horizontal"
-                android:textSize="100dp"
+                android:textSize="80dp"
                 android:paddingLeft="25dp" />
         </TableRow>
         <TableRow
             android:id="@+id/tableRow3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:background="#ff7b8066" >
+            android:gravity="center_horizontal">
 
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:id="@+id/imageView"
+                android:id="@+id/conditionIcon"
                 android:layout_column="0"
                 android:src="@drawable/ic_launcher" />
         </TableRow>
@@ -95,20 +106,93 @@
             android:id="@+id/tableRow4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:background="#ff7b8066" >
+            android:gravity="fill_horizontal|fill_vertical">
 
             <TextView
                 android:id="@+id/conditionTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="88\u00B0"
+                android:text="----"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="#FFF"
                 android:textStyle="italic"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
+                android:textSize="24dp"
+                android:gravity="left" />
+
+            <TextView
+                android:id="@+id/descriptionTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="------------"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#FFF"
+                android:textStyle="italic"
+                android:textAlignment="textStart"
+                android:textSize="24dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="fill_vertical|fill">
+
+            <TextView
+                android:id="@+id/humidityLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Humidity:"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#FFF"
+                android:textAlignment="textStart"
                 android:gravity="center_horizontal"
-                android:textSize="30dp" />
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/humidityTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="----"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#FFF"
+                android:textStyle="italic"
+                android:textAlignment="textStart"
+                android:textSize="24dp"
+                android:gravity="left" />
+
+            <TextView
+                android:id="@+id/windLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Wind:"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#FFF"
+                android:textAlignment="textStart"
+                android:gravity="center_horizontal"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/windTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="------------"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#FFF"
+                android:textStyle="italic"
+                android:textAlignment="textStart"
+                android:gravity="center_horizontal"
+                android:textSize="24dp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="fill_vertical|fill" >
 
         </TableRow>
 

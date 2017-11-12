@@ -7,23 +7,28 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MeteoRadar extends Activity implements LocationListener{
+public class MeteoRadar extends Activity implements LocationListener {
 
     Location location;
-    String appid="b112d5780682a781f8b9e98755d188c6";
+    String appid = "b112d5780682a781f8b9e98755d188c6";
     String units = "imperial";
-    double lat=29.975939;
-    double lon=31.130404;
+
+    //Default GPS Location is the Great Pyramids
+    double lat = 29.975939;
+    double lon = 31.130404;
 
     private TextView cityText;
     private TextView tempText;
+    private TextView conditionText;
+    private TextView descriptionText;
+    private TextView humidityText;
 
-
-    LocationManager locationManager ;
+    LocationManager locationManager;
     String provider;
 
     @Override
@@ -35,56 +40,59 @@ public class MeteoRadar extends Activity implements LocationListener{
 
         cityText = (TextView) findViewById(R.id.cityTextView);
         tempText = (TextView) findViewById(R.id.tempTextView);
-
+        conditionText = (TextView) findViewById(R.id.conditionTextView);
+        descriptionText = (TextView) findViewById(R.id.descriptionTextView);
 
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Criteria criteria = new Criteria();
         provider = locationManager.getBestProvider(criteria, false);
-        if (provider != null && !provider.equals(""))
-        {
+        if (provider != null && !provider.equals("")) {
             location = locationManager.getLastKnownLocation(provider);
             locationManager.requestLocationUpdates(provider, 20000, 1, this);
-            if (location != null)
-            {
+            if (location != null) {
                 onLocationChanged(location);
-            }
-            else
-            {
+            } else {
                 Toast.makeText(getBaseContext(), "Location can't be retrieved", Toast.LENGTH_SHORT).show();
             }
-        }
-        else
-        {
+        } else {
             Toast.makeText(getBaseContext(), "No Provider Found", Toast.LENGTH_SHORT).show();
         }
 
         //Toast.makeText(getBaseContext(), msg, Toast.LENGTH_LONG).show();
-        final String url = "http://api.openweathermap.org/data/2.5/weather?appid="+appid+"&units="+units+"&lat="+lat+"&lon="+lon;
+        final String url = "http://api.openweathermap.org/data/2.5/weather?appid=" + appid + "&units=" + units + "&lat=" + lat + "&lon=" + lon;
         final WeatherReport wthr = new WeatherReport(url);
 
-        findViewById(R.id.updatebutton).setOnClickListener( new View.OnClickListener() {
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                UpdateFields(wthr);
+            }
+        }, 500);
+
+        findViewById(R.id.updatebutton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Toast.makeText(getBaseContext(), "Updating Weather!", Toast.LENGTH_LONG).show();
-
                 cityText.setText(wthr.getCity());
                 tempText.setText(wthr.getTemp());
-
-
+                conditionText.setText(wthr.getCondition());
+                descriptionText.setText(wthr.getDescription());
             }
         });
+    }
 
-
-
-
+    public void UpdateFields(WeatherReport w) {
+        cityText.setText(w.getCity());
+        tempText.setText(w.getTemp());
+        conditionText.setText(w.getCondition());
+        descriptionText.setText(w.getDescription());
     }
 
     @Override
     public void onLocationChanged(Location location) {
-        lat=location.getLatitude();
-        lon=location.getLongitude();
+        lat = location.getLatitude();
+        lon = location.getLongitude();
     }
 
     @Override
