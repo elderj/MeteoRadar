@@ -37,7 +37,6 @@ public class MeteoRadar extends Activity implements LocationListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meteo_radar);
 
-
         cityText = (TextView) findViewById(R.id.cityTextView);
         tempText = (TextView) findViewById(R.id.tempTextView);
         conditionText = (TextView) findViewById(R.id.conditionTextView);
@@ -63,13 +62,14 @@ public class MeteoRadar extends Activity implements LocationListener {
         final String url = "http://api.openweathermap.org/data/2.5/weather?appid=" + appid + "&units=" + units + "&lat=" + lat + "&lon=" + lon;
         final WeatherReport wthr = new WeatherReport(url);
 
+
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 UpdateFields(wthr);
             }
-        }, 500);
+        }, 1000);
 
         findViewById(R.id.updatebutton).setOnClickListener(new View.OnClickListener() {
             @Override
