@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Weatherama"
+        android:text="MeteoRadar"
         android:id="@+id/hometitle"
         android:textAlignment="center"
         android:layout_alignParentTop="true"
@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:background="#008000" >
+            android:background="#ff7b8066" >
 
             <TextView
                 android:id="@+id/cityTextView"
@@ -59,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:background="#008000" >
+            android:background="#ff7b8066" >
 
             <TextView
                 android:id="@+id/tempTextView"
@@ -79,7 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:background="#008000" >
+            android:background="#ff7b8066" >
 
 
             <ImageView
@@ -96,7 +96,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:background="#008000" >
+            android:background="#ff7b8066" >
 
             <TextView
                 android:id="@+id/conditionTextView"
@@ -109,6 +109,7 @@
                 android:textAlignment="center"
                 android:gravity="center_horizontal"
                 android:textSize="30dp" />
+
         </TableRow>
 
     </TableLayout>
