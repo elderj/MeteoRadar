@@ -12,6 +12,15 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
+/*
+ * MeteoRadar App.
+ * A basic weather application (WIP!!)
+ *
+ */
+
+
 public class MeteoRadar extends Activity implements LocationListener {
 
     Location location;
@@ -27,6 +36,7 @@ public class MeteoRadar extends Activity implements LocationListener {
     private TextView conditionText;
     private TextView descriptionText;
     private TextView humidityText;
+    private TextView windText;
 
     LocationManager locationManager;
     String provider;
@@ -41,6 +51,8 @@ public class MeteoRadar extends Activity implements LocationListener {
         tempText = (TextView) findViewById(R.id.tempTextView);
         conditionText = (TextView) findViewById(R.id.conditionTextView);
         descriptionText = (TextView) findViewById(R.id.descriptionTextView);
+        humidityText = (TextView) findViewById(R.id.humidityTextView);
+        windText = (TextView) findViewById(R.id.windTextView);
 
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -48,7 +60,7 @@ public class MeteoRadar extends Activity implements LocationListener {
         provider = locationManager.getBestProvider(criteria, false);
         if (provider != null && !provider.equals("")) {
             location = locationManager.getLastKnownLocation(provider);
-            locationManager.requestLocationUpdates(provider, 20000, 1, this);
+            locationManager.requestLocationUpdates(provider, 60000, 5000, this);
             if (location != null) {
                 onLocationChanged(location);
             } else {
@@ -71,13 +83,12 @@ public class MeteoRadar extends Activity implements LocationListener {
             }
         }, 1000);
 
+        //This should be re-purposed for updating to different locations
+        //after T
         findViewById(R.id.updatebutton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cityText.setText(wthr.getCity());
-                tempText.setText(wthr.getTemp());
-                conditionText.setText(wthr.getCondition());
-                descriptionText.setText(wthr.getDescription());
+                UpdateFields(wthr);
             }
         });
     }
@@ -87,12 +98,17 @@ public class MeteoRadar extends Activity implements LocationListener {
         tempText.setText(w.getTemp());
         conditionText.setText(w.getCondition());
         descriptionText.setText(w.getDescription());
+        humidityText.setText(w.getHumidity());
+        windText.setText(w.getWind());
+
     }
 
     @Override
     public void onLocationChanged(Location location) {
+        Toast.makeText(getBaseContext(), "Location changed!! LAT:"+lat+" LON:"+lon, Toast.LENGTH_SHORT).show();
         lat = location.getLatitude();
         lon = location.getLongitude();
+        //Need to add this here to automatically update display upon loc change
     }
 
     @Override

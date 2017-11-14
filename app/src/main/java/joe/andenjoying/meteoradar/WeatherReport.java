@@ -8,17 +8,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * MeteoRadar App.
- * <p/>
- * A basic weather application (WIP!!)
- * <p/>
+ *
+ * It might be a good idea to make this an interface
+ * so when implemented, it can accept different forms of
+ * coordinates/location formats
+ *
  * Created by jelder on 11/11/17.
  */
 public class WeatherReport {
 
     JSONObject json;
     String city = "default";
-    String temp = "0.0";
+    String temp = "0.0\u00B0";
     String humidity = "0.0%";
     String condition = "";
 
@@ -30,7 +31,6 @@ public class WeatherReport {
     public WeatherReport(final String url) {
 
         System.out.println("Created a WeatherReport Object");
-
 
         new HttpHandler() {
             @Override
@@ -45,9 +45,6 @@ public class WeatherReport {
 
         }.execute();
 
-
-        //ParseData(json);
-
     }
 
     private void ParseData(String result) {
@@ -55,8 +52,8 @@ public class WeatherReport {
             json = new JSONObject(result);
             city = json.getString("name");
             JSONObject json_main = json.getJSONObject("main");
-            temp = json_main.getString("temp");
-            humidity = json_main.getString("humidity");
+            temp = json_main.getString("temp")+"\u00B0"; //Add degrees symbol to temp value
+            humidity = json_main.getString("humidity")+"%";
 
             //Conditions (unfortunatly named 'weather')
             JSONArray json_weather_arr = json.getJSONArray("weather");
@@ -101,11 +98,13 @@ public class WeatherReport {
         return icon_code;
     }
 
-    public String getWind_speed() {
+    public String getWind() {
         return wind_speed;
     }
 
+    /*
     public String getWind_direction() {
         return wind_direction;
     }
+    */
 }
