@@ -9,6 +9,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,8 +19,9 @@ import org.w3c.dom.Text;
  * MeteoRadar App.
  * A basic weather application (WIP!!)
  *
+ *  * Created by jelder on 11/11/17.
+ *
  */
-
 
 public class MeteoRadar extends Activity implements LocationListener {
 
@@ -37,6 +39,7 @@ public class MeteoRadar extends Activity implements LocationListener {
     private TextView descriptionText;
     private TextView humidityText;
     private TextView windText;
+    private ImageView iconImage;
 
     LocationManager locationManager;
     String provider;
@@ -53,14 +56,15 @@ public class MeteoRadar extends Activity implements LocationListener {
         descriptionText = (TextView) findViewById(R.id.descriptionTextView);
         humidityText = (TextView) findViewById(R.id.humidityTextView);
         windText = (TextView) findViewById(R.id.windTextView);
+        iconImage = (ImageView) findViewById(R.id.conditionIcon);
 
-
+        //Access fine location GPS Coords, if possible
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Criteria criteria = new Criteria();
         provider = locationManager.getBestProvider(criteria, false);
         if (provider != null && !provider.equals("")) {
             location = locationManager.getLastKnownLocation(provider);
-            locationManager.requestLocationUpdates(provider, 60000, 5000, this);
+            locationManager.requestLocationUpdates(provider, 120000, 10000, this);
             if (location != null) {
                 onLocationChanged(location);
             } else {
@@ -70,10 +74,8 @@ public class MeteoRadar extends Activity implements LocationListener {
             Toast.makeText(getBaseContext(), "No Provider Found", Toast.LENGTH_SHORT).show();
         }
 
-        //Toast.makeText(getBaseContext(), msg, Toast.LENGTH_LONG).show();
         final String url = "http://api.openweathermap.org/data/2.5/weather?appid=" + appid + "&units=" + units + "&lat=" + lat + "&lon=" + lon;
         final WeatherReport wthr = new WeatherReport(url);
-
 
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -81,25 +83,32 @@ public class MeteoRadar extends Activity implements LocationListener {
             public void run() {
                 UpdateFields(wthr);
             }
-        }, 1000);
+        }, 3000);
 
-        //This should be re-purposed for updating to different locations
-        //after T
         findViewById(R.id.updatebutton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 UpdateFields(wthr);
+
             }
         });
     }
 
-    public void UpdateFields(WeatherReport w) {
+    private void UpdateFields(WeatherReport w) {
         cityText.setText(w.getCity());
         tempText.setText(w.getTemp());
         conditionText.setText(w.getCondition());
         descriptionText.setText(w.getDescription());
         humidityText.setText(w.getHumidity());
         windText.setText(w.getWind());
+        ChangeWeatherImage(w.getIcon_code());
+    }
+
+
+    private void ChangeWeatherImage(String iconcode){
+        String iconfilename="wthr"+iconcode;
+        int resId = getResources().getIdentifier(iconfilename, "drawable", getPackageName());
+        iconImage.setImageResource(resId);
 
     }
 
@@ -108,6 +117,15 @@ public class MeteoRadar extends Activity implements LocationListener {
         Toast.makeText(getBaseContext(), "Location changed!! LAT:"+lat+" LON:"+lon, Toast.LENGTH_SHORT).show();
         lat = location.getLatitude();
         lon = location.getLongitude();
+        String currentURL = "http://api.openweathermap.org/data/2.5/weather?appid=" + appid + "&units=" + units + "&lat=" + lat + "&lon=" + lon;
+        final WeatherReport currWeather = new WeatherReport(currentURL);
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                UpdateFields(currWeather);
+            }
+        }, 3000);
         //Need to add this here to automatically update display upon loc change
     }
 
