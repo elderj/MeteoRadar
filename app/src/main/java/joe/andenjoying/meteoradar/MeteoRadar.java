@@ -9,6 +9,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +41,9 @@ public class MeteoRadar extends Activity implements LocationListener {
     private TextView humidityText;
     private TextView windText;
     private ImageView iconImage;
+    private EditText locationEditText;
+
+    private String loc;
 
     LocationManager locationManager;
     String provider;
@@ -57,6 +61,8 @@ public class MeteoRadar extends Activity implements LocationListener {
         humidityText = (TextView) findViewById(R.id.humidityTextView);
         windText = (TextView) findViewById(R.id.windTextView);
         iconImage = (ImageView) findViewById(R.id.conditionIcon);
+
+        locationEditText = (EditText) findViewById(R.id.locationInput);
 
         //Access fine location GPS Coords, if possible
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -76,7 +82,6 @@ public class MeteoRadar extends Activity implements LocationListener {
 
         final String url = "http://api.openweathermap.org/data/2.5/weather?appid=" + appid + "&units=" + units + "&lat=" + lat + "&lon=" + lon;
         final WeatherReport wthr = new WeatherReport(url);
-
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -88,18 +93,10 @@ public class MeteoRadar extends Activity implements LocationListener {
         findViewById(R.id.searchButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getBaseContext(), "Search:", Toast.LENGTH_SHORT).show();
+                String loc = String.valueOf(locationEditText.getText());
+                QueryLocation(loc);
             }
         });
-
-        findViewById(R.id.updatebutton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                UpdateFields(wthr);
-            }
-        });
-
-
     }
 
     private void UpdateFields(WeatherReport w) {
@@ -112,12 +109,36 @@ public class MeteoRadar extends Activity implements LocationListener {
         ChangeWeatherImage(w.getIcon_code());
     }
 
+    void QueryLocation(String locationInput){
+
+        String queryURL;
+        //Determine locationFormat format
+        if (locationInput.matches("[0-9]+") && locationInput.length() > 4 && locationInput.length() < 6 ){
+            queryURL = "http://api.openweathermap.org/data/2.5/weather?appid=" + appid + "&units=" + units + "&zip=" + locationInput;
+        }
+
+        else{
+            queryURL = "http://api.openweathermap.org/data/2.5/weather?appid=" + appid + "&units=" + units + "&q=" + locationInput;
+        }
+
+
+        //Toast.makeText(getBaseContext(), queryURL, Toast.LENGTH_SHORT).show();
+        //System.out.println(queryURL);
+        final WeatherReport queryWeather = new WeatherReport(queryURL);
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                UpdateFields(queryWeather);
+            }
+        }, 3000);
+
+    }
 
     private void ChangeWeatherImage(String iconcode){
         String iconfilename="wthr"+iconcode;
         int resId = getResources().getIdentifier(iconfilename, "drawable", getPackageName());
         iconImage.setImageResource(resId);
-
     }
 
     @Override
