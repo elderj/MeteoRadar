@@ -85,13 +85,21 @@ public class MeteoRadar extends Activity implements LocationListener {
             }
         }, 3000);
 
+        findViewById(R.id.searchButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getBaseContext(), "Search:", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         findViewById(R.id.updatebutton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 UpdateFields(wthr);
-
             }
         });
+
+
     }
 
     private void UpdateFields(WeatherReport w) {
