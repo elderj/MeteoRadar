@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MeteoRadar">
+    tools:context=".CurrentWeather">
 
     <TableRow
         android:layout_width="match_parent"
@@ -39,8 +39,9 @@
         <EditText
             android:id="@+id/locationInput"
             android:layout_width="297dp"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@android:color/darker_gray"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Name" />
@@ -49,7 +50,7 @@
             android:id="@+id/searchButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_span="4"
+            android:background="@android:color/transparent"
             android:src="@drawable/search" />
 
     </TableRow>
@@ -208,6 +209,13 @@
         android:layout_height="match_parent"
         android:gravity="bottom">
 
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="318dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Hourly!!" />
     </TableRow>
 
     <TableLayout

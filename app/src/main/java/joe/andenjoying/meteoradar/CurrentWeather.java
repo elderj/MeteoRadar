@@ -2,6 +2,7 @@ package joe.andenjoying.meteoradar;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
@@ -14,17 +15,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 /*
- * MeteoRadar App.
+ * CurrentWeather App.
  * A basic weather application (WIP!!)
  *
  *  * Created by jelder on 11/11/17.
  *
  */
 
-public class MeteoRadar extends Activity implements LocationListener {
+public class CurrentWeather extends Activity implements LocationListener {
 
     Location location;
     String appid = "b112d5780682a781f8b9e98755d188c6";
@@ -52,7 +51,7 @@ public class MeteoRadar extends Activity implements LocationListener {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_meteo_radar);
+        setContentView(R.layout.current_weather);
 
         cityText = (TextView) findViewById(R.id.cityTextView);
         tempText = (TextView) findViewById(R.id.tempTextView);
@@ -90,14 +89,28 @@ public class MeteoRadar extends Activity implements LocationListener {
             }
         }, 3000);
 
-        findViewById(R.id.searchButton).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.submitSearchButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String loc = String.valueOf(locationEditText.getText());
                 QueryLocation(loc);
             }
         });
+
+
+        findViewById(R.id.showHourlyButton).setOnClickListener( new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent hourlyWeatherIntent = new Intent(getApplicationContext(), HourlyWeather.class);
+                startActivity(hourlyWeatherIntent);
+            }
+        });
     }
+
+
+
 
     private void UpdateFields(WeatherReport w) {
         cityText.setText(w.getCity());

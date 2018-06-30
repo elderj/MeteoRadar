@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:theme="@style/MeteoRadarTheme" >
         <activity
-            android:name=".MeteoRadar"
+            android:name=".CurrentWeather"
             android:screenOrientation="portrait"
             android:label="@string/app_name" >
             <intent-filter>
@@ -21,6 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:label="MeteoRadar" android:name=".HourlyWeather"/>
     </application>
 
 </manifest>
