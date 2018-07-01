@@ -1,8 +1,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/abc_search_url_text_normal"
+    android:background="@color/background_material_dark"
     android:gravity="fill_horizontal"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -17,7 +18,7 @@
         android:gravity="center_horizontal">
 
         <TextView
-            android:id="@+id/hometitle"
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -43,8 +44,8 @@
             android:layout_gravity="center"
             android:background="@android:color/darker_gray"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:hint="Location"
+            android:inputType="textPersonName" />
 
         <ImageButton
             android:id="@+id/searchButton"
@@ -56,151 +57,372 @@
     </TableRow>
 
     <TableRow
-        android:id="@+id/tableRow1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-
-        <TextView
-            android:id="@+id/cityTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="----"
-            android:textAlignment="center"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFF"
-            android:textStyle="italic" />
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-
-        <TextView
-            android:id="@+id/tempTextView"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:paddingLeft="25dp"
-            android:paddingStart="25dp"
-            android:text="-\u00B0"
-            android:textAlignment="center"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFF"
-            android:textSize="80dp" />
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-
-
-        <ImageView
-            android:id="@+id/conditionIcon"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:gravity="center_horizontal"
-            android:src="@drawable/wthr01d" />
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/conditionTextView"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:text="----"
-            android:textAlignment="textStart"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFF"
-            android:textSize="24dp"
-            android:textStyle="italic" />
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="fill_vertical|fill">
-
-        <TextView
-            android:id="@+id/descriptionTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="------------"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFF"
-            android:textSize="24dp"
-            android:textStyle="italic" />
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-        <TextView
-            android:id="@+id/humidityLabel"
-            android:layout_width="wrap_content"
-            android:layout_gravity="start"
-            android:text="Humidity:"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFF"
-            android:textSize="24dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/humidityTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="fill"
-            android:gravity="start"
-            android:text="----"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFF"
-            android:textSize="24dp"
-            android:textStyle="italic" />
-
-    </TableRow>
-
-    <TableRow
+        android:id="@+id/cityInfoRow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/windLabel"
-            android:layout_width="match_parent"
+            android:id="@+id/cityTextView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Wind:"
+            android:layout_gravity="center_horizontal"
+            android:text="Mount Pleasant"
+            android:textSize="24sp" />
 
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFF"
-            android:textSize="24dp"
-            android:textStyle="bold" />
+    </TableRow>
 
-        <TextView
-            android:id="@+id/windTextView"
-            android:layout_width="match_parent"
+    <TableRow
+        android:id="@+id/hourTableRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <TableLayout
+            android:id="@+id/hourTable"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="------------"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="50dp">
 
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFF"
-            android:textSize="24dp"
-            android:textStyle="italic" />
+            <TableRow
+                android:id="@+id/hourOneRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/primary_dark_material_light">
 
+                <TextView
+                    android:id="@+id/oneTimeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="1 AM"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp" />
 
+                <TextView
+                    android:id="@+id/oneConditionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="Sunny"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/oneConditionIcon"
+                    android:layout_width="44dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/logo" />
+
+                <TextView
+                    android:id="@+id/oneTemperatureText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="75 -\u00B0"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/onePrecipitationText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="15 %"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/hourTwoRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/primary_dark_material_light">
+
+                <TextView
+                    android:id="@+id/twoTimeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="2 AM"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/twoConditionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Sunny"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/twoConditionIcon"
+                    android:layout_width="44dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/logo" />
+
+                <TextView
+                    android:id="@+id/twoTemperatureText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="75 -\u00B0"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/twoPrecipitationText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="15 %"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/hourThreeRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/primary_dark_material_light">
+
+                <TextView
+                    android:id="@+id/threeTimeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="3 AM"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/threeConditionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Sunny"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/threeConditionIcon"
+                    android:layout_width="44dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/logo" />
+
+                <TextView
+                    android:id="@+id/threeTemperatureText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="75 -\u00B0"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/threePrecipitationText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="15 %"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/hourFourRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/primary_dark_material_light">
+
+                <TextView
+                    android:id="@+id/fourTimeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="4 AM"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/fourConditionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Sunny"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/fourConditionIcon"
+                    android:layout_width="44dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/logo" />
+
+                <TextView
+                    android:id="@+id/fourTemperatureText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="75 -\u00B0"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/fourPrecipitationText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="15 %"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/hourFiveRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/primary_dark_material_light">
+
+                <TextView
+                    android:id="@+id/fiveTimeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="5 AM"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/fiveConditionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Sunny"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/fiveConditionIcon"
+                    android:layout_width="44dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/logo" />
+
+                <TextView
+                    android:id="@+id/fiveTemperatureText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="75 -\u00B0"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/fivePrecipitationText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="15 %"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/hourSixRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/primary_dark_material_light">
+
+                <TextView
+                    android:id="@+id/sixTimeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="6 AM"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/sixConditionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Sunny"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/sixConditionIcon"
+                    android:layout_width="44dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/logo" />
+
+                <TextView
+                    android:id="@+id/sixTemperatureText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="75 -\u00B0"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/sixPrecipitationText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="15 %"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp" />
+            </TableRow>
+
+        </TableLayout>
     </TableRow>
 
     <TableRow
@@ -209,20 +431,19 @@
         android:layout_height="match_parent"
         android:gravity="bottom">
 
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="318dp"
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Hourly!!" />
+            android:text="TextView"
+            tools:text="Bottom" />
     </TableRow>
 
     <TableLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_above="@+id/updatebutton"
-        android:layout_below="@+id/hometitle"
+        android:layout_below="@+id/title"
         android:layout_centerHorizontal="true"
         android:gravity="start">
 

@@ -109,9 +109,6 @@ public class CurrentWeather extends Activity implements LocationListener {
         });
     }
 
-
-
-
     private void UpdateFields(WeatherReport w) {
         cityText.setText(w.getCity());
         tempText.setText(w.getTemp());

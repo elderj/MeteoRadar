@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="joe.andenjoying.meteoradar" >
+    package="joe.andenjoying.meteoradar">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
-
         android:icon="@drawable/logo"
         android:label="@string/app_name"
-        android:theme="@style/MeteoRadarTheme" >
+        android:theme="@style/MeteoRadarTheme">
         <activity
             android:name=".CurrentWeather"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
+            android:label="MeteoRadar" />
+        <activity
+            android:name=".HourlyWeather"
+            android:label="MeteoRadar" />
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:label="MeteoRadar" android:name=".HourlyWeather"/>
     </application>
 
 </manifest>

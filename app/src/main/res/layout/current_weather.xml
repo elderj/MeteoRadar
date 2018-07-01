@@ -12,12 +12,13 @@
     tools:context=".CurrentWeather">
 
     <TableRow
+        android:id="@+id/titleRow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal">
 
         <TextView
-            android:id="@+id/hometitle"
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -28,10 +29,14 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#FFFFFF" />
 
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
     </TableRow>
 
     <TableRow
-        android:id="@+id/tableRow"
+        android:id="@+id/searchRow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="fill_horizontal">
@@ -43,8 +48,8 @@
             android:layout_gravity="center"
             android:background="@android:color/darker_gray"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:hint="Location"
+            android:inputType="textPersonName" />
 
         <ImageButton
             android:id="@+id/submitSearchButton"
@@ -211,16 +216,16 @@
 
         <Button
             android:id="@+id/showHourlyButton"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hourly" />
+            android:text="View Hourly" />
     </TableRow>
 
     <TableLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_above="@+id/updatebutton"
-        android:layout_below="@+id/hometitle"
+        android:layout_below="@+id/title"
         android:layout_centerHorizontal="true"
         android:gravity="start">
 
