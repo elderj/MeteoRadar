@@ -18,13 +18,12 @@
         android:gravity="center_horizontal">
 
         <TextView
-            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:gravity="center_horizontal"
-            android:text="MeteoRadar"
+            android:text="Hourly"
             android:textAlignment="center"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#FFFFFF" />
@@ -124,6 +123,7 @@
                     android:scaleType="fitCenter"
                     android:src="@drawable/logo" />
 
+
                 <TextView
                     android:id="@+id/oneTemperatureText"
                     android:layout_width="wrap_content"
@@ -183,6 +183,7 @@
                     android:scaleType="fitCenter"
                     android:src="@drawable/logo" />
 
+
                 <TextView
                     android:id="@+id/twoTemperatureText"
                     android:layout_width="wrap_content"
@@ -229,6 +230,7 @@
 
                 <ImageView
                     android:id="@+id/threeConditionIcon"
+
                     android:layout_width="44dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
@@ -237,6 +239,7 @@
                     android:paddingRight="12dp"
                     android:scaleType="fitCenter"
                     android:src="@drawable/logo" />
+
 
                 <TextView
                     android:id="@+id/threeTemperatureText"
@@ -293,6 +296,7 @@
                     android:scaleType="fitCenter"
                     android:src="@drawable/logo" />
 
+
                 <TextView
                     android:id="@+id/fourTemperatureText"
                     android:layout_width="wrap_content"
@@ -348,6 +352,7 @@
                     android:scaleType="fitCenter"
                     android:src="@drawable/logo" />
 
+
                 <TextView
                     android:id="@+id/fiveTemperatureText"
                     android:layout_width="wrap_content"
@@ -383,6 +388,7 @@
                     android:textColor="@color/background_floating_material_light"
                     android:textSize="18sp" />
 
+
                 <TextView
                     android:id="@+id/sixConditionText"
                     android:layout_width="wrap_content"
@@ -402,6 +408,7 @@
                     android:paddingRight="12dp"
                     android:scaleType="fitCenter"
                     android:src="@drawable/logo" />
+
 
                 <TextView
                     android:id="@+id/sixTemperatureText"
