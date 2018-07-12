@@ -91,7 +91,7 @@
                 android:background="@color/primary_dark_material_light">
 
                 <TextView
-                    android:id="@+id/oneTimeText"
+                    android:id="@+id/TimeText1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -102,7 +102,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/oneConditionText"
+                    android:id="@+id/ConditionText1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -113,7 +113,7 @@
                     android:textSize="18sp" />
 
                 <ImageView
-                    android:id="@+id/oneConditionIcon"
+                    android:id="@+id/ConditionIcon1"
                     android:layout_width="44dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
@@ -125,7 +125,7 @@
 
 
                 <TextView
-                    android:id="@+id/oneTemperatureText"
+                    android:id="@+id/TemperatureText1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -136,7 +136,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/onePrecipitationText"
+                    android:id="@+id/PrecipitationText1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -155,7 +155,7 @@
                 android:background="@color/primary_dark_material_light">
 
                 <TextView
-                    android:id="@+id/twoTimeText"
+                    android:id="@+id/TimeText2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -164,7 +164,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/twoConditionText"
+                    android:id="@+id/ConditionText2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -173,7 +173,7 @@
                     android:textSize="18sp" />
 
                 <ImageView
-                    android:id="@+id/twoConditionIcon"
+                    android:id="@+id/ConditionIcon2"
                     android:layout_width="44dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
@@ -185,7 +185,7 @@
 
 
                 <TextView
-                    android:id="@+id/twoTemperatureText"
+                    android:id="@+id/TemperatureText2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -194,7 +194,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/twoPrecipitationText"
+                    android:id="@+id/PrecipitationText2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -211,7 +211,7 @@
                 android:background="@color/primary_dark_material_light">
 
                 <TextView
-                    android:id="@+id/threeTimeText"
+                    android:id="@+id/TimeText3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -220,7 +220,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/threeConditionText"
+                    android:id="@+id/ConditionText3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -229,8 +229,7 @@
                     android:textSize="18sp" />
 
                 <ImageView
-                    android:id="@+id/threeConditionIcon"
-
+                    android:id="@+id/ConditionIcon3"
                     android:layout_width="44dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
@@ -242,7 +241,7 @@
 
 
                 <TextView
-                    android:id="@+id/threeTemperatureText"
+                    android:id="@+id/TemperatureText3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -251,7 +250,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/threePrecipitationText"
+                    android:id="@+id/PrecipitationText3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -268,7 +267,7 @@
                 android:background="@color/primary_dark_material_light">
 
                 <TextView
-                    android:id="@+id/fourTimeText"
+                    android:id="@+id/TimeText4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -277,7 +276,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/fourConditionText"
+                    android:id="@+id/ConditionText4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -286,7 +285,7 @@
                     android:textSize="18sp" />
 
                 <ImageView
-                    android:id="@+id/fourConditionIcon"
+                    android:id="@+id/ConditionIcon4"
                     android:layout_width="44dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
@@ -298,7 +297,7 @@
 
 
                 <TextView
-                    android:id="@+id/fourTemperatureText"
+                    android:id="@+id/TemperatureText4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -307,7 +306,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/fourPrecipitationText"
+                    android:id="@+id/PrecipitationText4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -324,7 +323,7 @@
                 android:background="@color/primary_dark_material_light">
 
                 <TextView
-                    android:id="@+id/fiveTimeText"
+                    android:id="@+id/TimeText5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -333,7 +332,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/fiveConditionText"
+                    android:id="@+id/ConditionText5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -342,7 +341,7 @@
                     android:textSize="18sp" />
 
                 <ImageView
-                    android:id="@+id/fiveConditionIcon"
+                    android:id="@+id/ConditionIcon5"
                     android:layout_width="44dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
@@ -354,7 +353,7 @@
 
 
                 <TextView
-                    android:id="@+id/fiveTemperatureText"
+                    android:id="@+id/TemperatureText5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -363,7 +362,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/fivePrecipitationText"
+                    android:id="@+id/PrecipitationText5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -380,7 +379,7 @@
                 android:background="@color/primary_dark_material_light">
 
                 <TextView
-                    android:id="@+id/sixTimeText"
+                    android:id="@+id/TimeText6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -390,7 +389,7 @@
 
 
                 <TextView
-                    android:id="@+id/sixConditionText"
+                    android:id="@+id/ConditionText6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -399,7 +398,7 @@
                     android:textSize="18sp" />
 
                 <ImageView
-                    android:id="@+id/sixConditionIcon"
+                    android:id="@+id/ConditionIcon6"
                     android:layout_width="44dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
@@ -411,7 +410,7 @@
 
 
                 <TextView
-                    android:id="@+id/sixTemperatureText"
+                    android:id="@+id/TemperatureText6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -420,7 +419,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/sixPrecipitationText"
+                    android:id="@+id/PrecipitationText6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"

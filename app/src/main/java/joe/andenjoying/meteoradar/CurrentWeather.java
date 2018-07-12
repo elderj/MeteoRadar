@@ -33,6 +33,7 @@ public class CurrentWeather extends Activity implements LocationListener {
     double lat = 29.975939;
     double lon = 31.130404;
 
+    private String cityId;
     private TextView cityText;
     private TextView tempText;
     private TextView conditionText;
@@ -41,8 +42,6 @@ public class CurrentWeather extends Activity implements LocationListener {
     private TextView windText;
     private ImageView iconImage;
     private EditText locationEditText;
-
-    private String loc;
 
     LocationManager locationManager;
     String provider;
@@ -80,7 +79,9 @@ public class CurrentWeather extends Activity implements LocationListener {
         }
 
         final String url = "http://api.openweathermap.org/data/2.5/weather?appid=" + appid + "&units=" + units + "&lat=" + lat + "&lon=" + lon;
-        final WeatherReport wthr = new WeatherReport(url);
+
+        final WeatherReportwithQuery wthr = new WeatherReportwithQuery(url);
+
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -97,19 +98,22 @@ public class CurrentWeather extends Activity implements LocationListener {
             }
         });
 
-
         findViewById(R.id.showHourlyButton).setOnClickListener( new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
                 Intent hourlyWeatherIntent = new Intent(getApplicationContext(), HourlyWeather.class);
+                String hourlyUrl = "http://api.openweathermap.org/data/2.5/forecast?appid=" + appid+"&id="+cityId+"&units=imperial";
+                hourlyWeatherIntent.putExtra("url", hourlyUrl);
                 startActivity(hourlyWeatherIntent);
             }
         });
     }
 
-    private void UpdateFields(WeatherReport w) {
+    private void UpdateFields(WeatherReportwithQuery w) {
+        cityId=w.getId();
+//        System.out.println("HEREITIS:"+cityId);
         cityText.setText(w.getCity());
         tempText.setText(w.getTemp());
         conditionText.setText(w.getCondition());
@@ -126,15 +130,14 @@ public class CurrentWeather extends Activity implements LocationListener {
         if (locationInput.matches("[0-9]+") && locationInput.length() > 4 && locationInput.length() < 6 ){
             queryURL = "http://api.openweathermap.org/data/2.5/weather?appid=" + appid + "&units=" + units + "&zip=" + locationInput;
         }
-
         else{
             queryURL = "http://api.openweathermap.org/data/2.5/weather?appid=" + appid + "&units=" + units + "&q=" + locationInput;
         }
 
 
-        //Toast.makeText(getBaseContext(), queryURL, Toast.LENGTH_SHORT).show();
-        //System.out.println(queryURL);
-        final WeatherReport queryWeather = new WeatherReport(queryURL);
+
+        System.out.println(queryURL);
+        final WeatherReportwithQuery queryWeather = new WeatherReportwithQuery(queryURL);
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -157,7 +160,7 @@ public class CurrentWeather extends Activity implements LocationListener {
         lat = location.getLatitude();
         lon = location.getLongitude();
         String currentURL = "http://api.openweathermap.org/data/2.5/weather?appid=" + appid + "&units=" + units + "&lat=" + lat + "&lon=" + lon;
-        final WeatherReport currWeather = new WeatherReport(currentURL);
+        final WeatherReportwithQuery currWeather = new WeatherReportwithQuery(currentURL);
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
