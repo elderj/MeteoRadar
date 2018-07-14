@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="MeteoRadarTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="MeteoRadarTheme" parent="Base.Theme.AppCompat">
 
     </style>
 

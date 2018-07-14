@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_material_dark"
+    android:background="@android:color/holo_blue_dark"
     android:gravity="fill_horizontal"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -22,11 +22,13 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:fontFamily="casual"
             android:gravity="center_horizontal"
-            android:text="Hourly"
+            android:text="Hourly Forecast"
             android:textAlignment="center"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
 
     </TableRow>
 
@@ -37,21 +39,23 @@
         android:layout_gravity="fill_horizontal">
 
         <EditText
-            android:id="@+id/locationInput"
-            android:layout_width="297dp"
+            android:id="@+id/hourlyEditText"
+            android:layout_width="279dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_gravity="fill_horizontal|center"
             android:background="@android:color/darker_gray"
             android:ems="10"
             android:hint="Location"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:visibility="invisible" />
 
         <ImageButton
-            android:id="@+id/searchButton"
-            android:layout_width="wrap_content"
+            android:id="@+id/hourlySearchButton"
+            android:layout_width="48dp"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/search" />
+            android:src="@drawable/search"
+            android:visibility="invisible" />
 
     </TableRow>
 
@@ -65,7 +69,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Mount Pleasant"
             android:textSize="24sp" />
 
     </TableRow>
@@ -81,39 +84,102 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:paddingTop="50dp">
+            android:paddingTop="25dp"
+            android:visibility="invisible">
+
+            <TableRow
+                android:id="@+id/hourHeaderRow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/TimeHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="Hour"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/ConditionHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="Condition"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/ConditionIconHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/TemperatureHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="Temp"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/HumidityHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="Hum"
+                    android:textColor="@color/background_floating_material_light"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </TableRow>
 
             <TableRow
                 android:id="@+id/hourOneRow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@color/primary_dark_material_light">
+                android:layout_gravity="center_horizontal">
 
                 <TextView
-                    android:id="@+id/oneTimeText"
+                    android:id="@+id/TimeText1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:paddingLeft="12dp"
-                    android:paddingRight="12dp"
                     android:text="1 AM"
                     android:textColor="@color/background_floating_material_light"
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/oneConditionText"
+                    android:id="@+id/ConditionText1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:paddingLeft="12dp"
-                    android:paddingRight="12dp"
                     android:text="Sunny"
                     android:textColor="@color/background_floating_material_light"
                     android:textSize="18sp" />
 
                 <ImageView
-                    android:id="@+id/oneConditionIcon"
+                    android:id="@+id/ConditionIcon1"
                     android:layout_width="44dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
@@ -125,23 +191,19 @@
 
 
                 <TextView
-                    android:id="@+id/oneTemperatureText"
+                    android:id="@+id/TemperatureText1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:paddingLeft="12dp"
-                    android:paddingRight="12dp"
                     android:text="75 -\u00B0"
                     android:textColor="@color/background_floating_material_light"
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/onePrecipitationText"
+                    android:id="@+id/HumidityText1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:paddingLeft="12dp"
-                    android:paddingRight="12dp"
                     android:text="15 %"
                     android:textColor="@color/background_floating_material_light"
                     android:textSize="18sp" />
@@ -151,11 +213,10 @@
                 android:id="@+id/hourTwoRow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@color/primary_dark_material_light">
+                android:layout_gravity="center_horizontal">
 
                 <TextView
-                    android:id="@+id/twoTimeText"
+                    android:id="@+id/TimeText2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -164,7 +225,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/twoConditionText"
+                    android:id="@+id/ConditionText2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -173,7 +234,7 @@
                     android:textSize="18sp" />
 
                 <ImageView
-                    android:id="@+id/twoConditionIcon"
+                    android:id="@+id/ConditionIcon2"
                     android:layout_width="44dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
@@ -185,7 +246,7 @@
 
 
                 <TextView
-                    android:id="@+id/twoTemperatureText"
+                    android:id="@+id/TemperatureText2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -194,7 +255,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/twoPrecipitationText"
+                    android:id="@+id/HumidityText2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -207,11 +268,10 @@
                 android:id="@+id/hourThreeRow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@color/primary_dark_material_light">
+                android:layout_gravity="center_horizontal">
 
                 <TextView
-                    android:id="@+id/threeTimeText"
+                    android:id="@+id/TimeText3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -220,7 +280,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/threeConditionText"
+                    android:id="@+id/ConditionText3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -229,8 +289,7 @@
                     android:textSize="18sp" />
 
                 <ImageView
-                    android:id="@+id/threeConditionIcon"
-
+                    android:id="@+id/ConditionIcon3"
                     android:layout_width="44dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
@@ -242,7 +301,7 @@
 
 
                 <TextView
-                    android:id="@+id/threeTemperatureText"
+                    android:id="@+id/TemperatureText3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -251,7 +310,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/threePrecipitationText"
+                    android:id="@+id/HumidityText3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -264,11 +323,10 @@
                 android:id="@+id/hourFourRow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@color/primary_dark_material_light">
+                android:layout_gravity="center_horizontal">
 
                 <TextView
-                    android:id="@+id/fourTimeText"
+                    android:id="@+id/TimeText4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -277,7 +335,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/fourConditionText"
+                    android:id="@+id/ConditionText4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -286,7 +344,7 @@
                     android:textSize="18sp" />
 
                 <ImageView
-                    android:id="@+id/fourConditionIcon"
+                    android:id="@+id/ConditionIcon4"
                     android:layout_width="44dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
@@ -298,7 +356,7 @@
 
 
                 <TextView
-                    android:id="@+id/fourTemperatureText"
+                    android:id="@+id/TemperatureText4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -307,7 +365,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/fourPrecipitationText"
+                    android:id="@+id/HumidityText4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -320,11 +378,10 @@
                 android:id="@+id/hourFiveRow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@color/primary_dark_material_light">
+                android:layout_gravity="center_horizontal">
 
                 <TextView
-                    android:id="@+id/fiveTimeText"
+                    android:id="@+id/TimeText5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -333,7 +390,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/fiveConditionText"
+                    android:id="@+id/ConditionText5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -342,7 +399,7 @@
                     android:textSize="18sp" />
 
                 <ImageView
-                    android:id="@+id/fiveConditionIcon"
+                    android:id="@+id/ConditionIcon5"
                     android:layout_width="44dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
@@ -354,7 +411,7 @@
 
 
                 <TextView
-                    android:id="@+id/fiveTemperatureText"
+                    android:id="@+id/TemperatureText5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -363,7 +420,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/fivePrecipitationText"
+                    android:id="@+id/HumidityText5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -376,11 +433,10 @@
                 android:id="@+id/hourSixRow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@color/primary_dark_material_light">
+                android:layout_gravity="center_horizontal">
 
                 <TextView
-                    android:id="@+id/sixTimeText"
+                    android:id="@+id/TimeText6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -390,7 +446,7 @@
 
 
                 <TextView
-                    android:id="@+id/sixConditionText"
+                    android:id="@+id/ConditionText6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -399,7 +455,7 @@
                     android:textSize="18sp" />
 
                 <ImageView
-                    android:id="@+id/sixConditionIcon"
+                    android:id="@+id/ConditionIcon6"
                     android:layout_width="44dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
@@ -411,7 +467,7 @@
 
 
                 <TextView
-                    android:id="@+id/sixTemperatureText"
+                    android:id="@+id/TemperatureText6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -420,7 +476,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/sixPrecipitationText"
+                    android:id="@+id/HumidityText6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -441,9 +497,7 @@
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            tools:text="Bottom" />
+            android:layout_height="wrap_content" />
     </TableRow>
 
     <TableLayout

@@ -4,18 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/wandobridge"
+    android:background="@android:color/holo_blue_dark"
     tools:context="joe.andenjoying.meteoradar.LoginActivity">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/AppTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="148dp"
-        android:text="This is my login screen for the moment"
-        android:textColor="@android:color/black"
+        android:layout_marginTop="70dp"
+        android:fontFamily="casual"
+        android:text="MeteoRadar"
+        android:textColor="#81ffd9"
+        android:textSize="30sp"
+        android:textStyle="bold"
         tools:layout_editor_absoluteX="30dp"
         tools:layout_editor_absoluteY="27dp" />
 
@@ -25,8 +28,23 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="110dp"
+        android:layout_marginBottom="63dp"
+        android:width="80dp"
+        android:background="@drawable/roundbutton"
         android:text="Login"
+        android:textColor="#81ffd9"
         tools:layout_editor_absoluteX="149dp"
         tools:layout_editor_absoluteY="477dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/AppTitle"
+        android:layout_alignRight="@+id/AppTitle"
+        android:layout_below="@+id/AppTitle"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="70dp"
+        android:src="@drawable/logo" />
 </RelativeLayout>

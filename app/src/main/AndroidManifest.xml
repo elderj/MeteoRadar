@@ -12,13 +12,13 @@
         android:theme="@style/MeteoRadarTheme">
         <activity
             android:name=".CurrentWeather"
-            android:label="MeteoRadar" />
+            android:label="Current Weather" />
         <activity
             android:name=".HourlyWeather"
-            android:label="MeteoRadar" />
+            android:label="Hourly Weather" />
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login">
+            android:label="MeteoRadar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
