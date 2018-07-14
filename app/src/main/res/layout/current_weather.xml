@@ -223,15 +223,4 @@
             android:text="View Hourly" />
     </TableRow>
 
-    <TableLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_above="@+id/updatebutton"
-
-        android:layout_below="@+id/title"
-        android:layout_centerHorizontal="true"
-        android:gravity="start">
-
-    </TableLayout>
-
 </LinearLayout>
