@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,6 +41,8 @@ public class HourlyWeather extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Toast.makeText(getBaseContext(), "Hourly View", Toast.LENGTH_SHORT).show();
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
 

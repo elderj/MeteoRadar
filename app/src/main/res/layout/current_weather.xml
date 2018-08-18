@@ -124,7 +124,7 @@
             android:id="@+id/conditionTextView"
             android:layout_height="wrap_content"
             android:gravity="start"
-            android:text="----"
+            android:text="---"
             android:textAlignment="textStart"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#FFF"
